@@ -5,7 +5,7 @@ from registration.registration import create_db, add_user, authenticate_user, di
 
 @pytest.fixture(scope="module")
 def setup_database():
-    """Testlerden önce veritabanını oluşturmak ve testlerden sonra temizlemek için kullanılan test düzeneği."""
+    """Testlerden önce veri tabanını oluşturmak ve testlerden sonra temizlemek için kullanılan test düzeneği."""
     create_db()
     yield
     try:
