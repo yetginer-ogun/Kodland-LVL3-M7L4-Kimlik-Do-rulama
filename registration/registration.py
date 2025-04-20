@@ -35,7 +35,7 @@ def display_users():
         cursor = conn.cursor()
         cursor.execute('SELECT username, email FROM users')
         for user in cursor.fetchall():
-            print(f"Logic: {user[0]}, Email: {user[1]}")
+            print(f"Kullanıcı adı: {user[0]}, E-posta: {user[1]}")
 
 
 def user_choice():
