@@ -5,7 +5,7 @@ from registration.registration import create_db, add_user, authenticate_user, di
 
 @pytest.fixture(scope="module")
 def setup_database():
-    """A fixture for setting up the database before tests and cleaning up afterwards."""
+    """Testlerden önce veritabanını oluşturmak ve testlerden sonra temizlemek için kullanılan test düzeneği."""
     create_db()
     yield
     try:
@@ -15,32 +15,32 @@ def setup_database():
 
 @pytest.fixture
 def connection():
-    """A fixture for obtaining a database connection and closing it after a test."""
+    """Test sırasında veri tabanı bağlantısı oluşturur ve testten sonra bağlantıyı kapatır."""
     conn = sqlite3.connect('users.db')
     yield conn
     conn.close()
 
 
 def test_create_db(setup_database, connection):
-    """Testing the creation of the database and the users table."""
+    """Veri tabanı ve 'users' tablosunun oluşturulmasını test eder."""
     cursor = connection.cursor()
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='users';")
     table_exists = cursor.fetchone()
-    assert table_exists, "The 'users' table should exist in the database."
+    assert table_exists, "'users' tablosu veri tabanında bulunmalıdır."
 
 def test_add_new_user(setup_database, connection):
-    """Testing the addition of a new user."""
+    """Yeni bir kullanıcının eklenmesini test eder."""
     add_user('testuser', 'testuser@example.com', 'password123')
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM users WHERE username='testuser';")
     user = cursor.fetchone()
-    assert user, "The user should be added to the database."
+    assert user, "Kullanıcı veri tabanına eklenmiş olmalıdır."
 
-# Here are the tests you could write:
+# İşte yazabileceğiniz bazı testler:
 """
-Testing the attempt to add a user with an existing username.
-Testing successful user authentication.
-Testing authentication of a non-existent user.
-Testing authentication with an incorrect password.
-Testing the correct display of the user list.
+Var olan bir kullanıcı adıyla kullanıcı eklemeye çalışmayı test etme.
+Başarılı kullanıcı doğrulamasını test etme.
+Var olmayan bir kullanıcıyla doğrulama yapmayı test etme.
+Yanlış şifreyle doğrulama yapmayı test etme.
+Kullanıcı listesinin doğru şekilde görüntülenmesini test etme.
 """
