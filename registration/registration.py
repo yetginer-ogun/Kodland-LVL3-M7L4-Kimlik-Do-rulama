@@ -39,31 +39,30 @@ def display_users():
 
 
 def user_choice():
-    print("\n1. Login")
-    print("2. Register")
-    choice = input("Please enter your selection (1/2): ")
+    print("\n1.  Giriş yap")
+    print("2. Kayıt ol")
+    choice = input("Lütfen seçiminizi girin (1/2): ")
     return choice
 
 def main():
     create_db()
-    display_users()  # Show a list of users before selecting an action
-
+    display_users()  # Kullanıcı listesi, işlem seçmeden önce gösterilir
     choice = user_choice()
 
     if choice == '1':
-        username = input("Enter your login: ")
-        password = input("Enter your password: ")
+        username = input("Kullanıcı adınızı girin: ")
+        password = input("Şifrenizi girin: ")
         if authenticate_user(username, password):
-            print("Authentication complete.")
+            print("Doğrulama başarılı.")
         else:
-            print("Incorrect login or password.")
+            print("Kullanıcı adı veya şifre hatalı.")
     elif choice == '2':
-        username = input("Enter the login of the new user: ")
-        email = input("Enter the email of the new user: ")
-        password = input("Enter the password of the new user: ")
+        username = input("Yeni kullanıcı için kullanıcı adı girin: ")
+        email = input("Yeni kullanıcı için e-posta adresi girin: ")
+        password = input("Yeni kullanıcı için şifre girin: ")
         add_user(username, email, password)
     else:
-        print("Invalid entry. Please enter 1 to login or 2 to register.")
+        print("Geçersiz giriş. Lütfen giriş yapmak için 1, kayıt olmak için 2 girin.")
 
 if __name__ == "__main__":
     main()
