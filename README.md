@@ -16,7 +16,7 @@ Bu programı kullanabilmek için bilgisayarınızda Python 3.6 veya daha üst bi
 
 1. Depoyu bilgisayarınıza klonlayın:
     ```bash
-    git clone repository_path
+    git clone depo_yolu
     ```
 2. Proje dizinine gidin:
     ```bash
