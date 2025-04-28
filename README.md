@@ -4,13 +4,13 @@ Python ile gerçekleştirilmiş basit bir kullanıcı yönetim sistemi. Bu siste
 
 ## Özellikler
 
-- **Yeni kullanıcı ekleme**: Uygulama, yeni kullanıcıların giriş bilgilerini veritabanına kaydeder.
+- **Yeni kullanıcı ekleme**: Uygulama, yeni kullanıcıların giriş bilgilerini veri tabanına kaydeder.
 - **Kullanıcı doğrulama**: Uygulama, kullanıcı kimlik bilgilerini doğruladıktan sonra giriş yapmalarına izin verir.
 - **Kullanıcı listesini görüntüleme**: Uygulama, tüm kullanıcıların (şifreler hariç) verileriyle birlikte listesini gösterir.
 
 ## Programı Çalıştırma
 
-Bu programı kullanabilmek için bilgisayarınızda Python 3.6 veya daha üst bir sürümünün ve SQLite’ın kurulu olması gerekir.
+Bu programı kullanabilmek için bilgisayarınızda Python 3.6 veya daha üst bir sürümünün ve SQLite eklentisinin kurulu olması gerekir.
 
 ### Kurulum
 
