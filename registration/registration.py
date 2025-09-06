@@ -30,12 +30,15 @@ def authenticate_user(username, password):
         cursor.execute('SELECT * FROM users WHERE username=? AND password=?', (username, password))
         return cursor.fetchone() is not None
 
-def display_users():
+def get_users():
     with sqlite3.connect(DB_NAME) as conn:
         cursor = conn.cursor()
         cursor.execute('SELECT username, email FROM users')
-        for user in cursor.fetchall():
-            print(f"Kullanıcı adı: {user[0]}, E-posta: {user[1]}")
+        return cursor.fetchall()
+    
+def display_users():
+    for user in get_users():
+        print(f"Kullanıcı adı: {user[0]}, E-posta: {user[1]}")
 
 
 def user_choice():
